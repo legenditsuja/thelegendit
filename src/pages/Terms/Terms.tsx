@@ -19,25 +19,25 @@ const Terms: React.FC = () => {
             icon: <FileText className="w-6 h-6 text-blue-400" />,
             title: 'Use License',
             content: [
-                'Permission is granted to temporarily download one copy of the materials (information or software) on Neexzen\'s website for personal, non-commercial transitory viewing only.',
+                'Permission is granted to temporarily download one copy of the materials (information or software) on The Legend It\'s website for personal, non-commercial transitory viewing only.',
                 'This is the grant of a license, not a transfer of title, and under this license you may not modify or copy the materials.',
                 'Use the materials for any commercial purpose, or for any public display (commercial or non-commercial).',
-                'Attempt to decompile or reverse engineer any software contained on Neexzen\'s website.'
+                'Attempt to decompile or reverse engineer any software contained on The Legend It\'s website.'
             ]
         },
         {
             icon: <AlertTriangle className="w-6 h-6 text-pink-400" />,
             title: 'Disclaimer',
             content: [
-                'The materials on Neexzen\'s website are provided on an "as is" basis. Neexzen makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability.',
-                'Further, Neexzen does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.'
+                'The materials on The Legend It\'s website are provided on an "as is" basis. The Legend It makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability.',
+                'Further, The Legend It does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.'
             ]
         },
         {
             icon: <Scale className="w-6 h-6 text-green-400" />,
             title: 'Limitations',
             content: [
-                'In no event shall Neexzen or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Neexzen\'s website.',
+                'In no event shall The Legend It or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on The Legend It\'s website.',
                 'Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.'
             ]
         }
@@ -115,7 +115,7 @@ const Terms: React.FC = () => {
                         If you have any questions or concerns about our Terms of Service, please contact us.
                     </p>
                     <a
-                        href="mailto:info@neexzen.com"
+                        href="mailto:info@The Legend It.com"
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-medium hover:bg-neutral-200 transition-colors"
                     >
                         Contact Support

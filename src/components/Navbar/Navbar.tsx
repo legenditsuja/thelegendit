@@ -69,11 +69,7 @@ const Navbar: React.FC = () => {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'}`}>
             <Link to="/" className="flex items-center gap-2 group">
-              <img
-                src="/NEEXZEN%20LOGO_LARGE.png"
-                alt="Neexzen Logo"
-                className={`transition-all duration-300 w-200px ${isScrolled ? 'h-10' : 'h-12'}`}
-              />
+             <h1 className='text-2xl font-bold'>The Legend It</h1>
             </Link>
 
             {/* Desktop Navigation */}

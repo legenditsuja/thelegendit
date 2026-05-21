@@ -65,7 +65,7 @@ const values = [
 ];
 
 const faqs = [
-  { q: 'What makes Neexzen different?', a: 'Our "innovation-first" approach. We partner with you to discover what\'s possible, not just what\'s safe. Every project starts with deep strategic thinking before any code is written.' },
+  { q: 'What makes The Legend It different?', a: 'Our "innovation-first" approach. We partner with you to discover what\'s possible, not just what\'s safe. Every project starts with deep strategic thinking before any code is written.' },
   { q: 'How do you ensure project success?', a: 'Transparency, agile methodology, and a dedicated project manager keep everything on track. We hold weekly syncs, maintain detailed documentation, and provide real-time updates.' },
   { q: 'Do you work with startups?', a: 'Absolutely. Our processes scale for startups and enterprises alike. We\'ve helped zero-to-one products launch and enterprise systems modernize with equal care.' },
   { q: 'What is the typical engagement process?', a: 'Discovery → Strategy → Design → Development → QA → Launch → Support. Each phase has clear deliverables and sign-off before we move forward.' },

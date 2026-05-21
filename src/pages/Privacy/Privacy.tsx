@@ -43,7 +43,7 @@ const Privacy: React.FC = () => {
                 'You have the right to access, update, or delete your personal information.',
                 'You can object to the processing of your personal data.',
                 'You can request a copy of the data we adhere to.',
-                'To exercise these rights, please contact us at info@neexzen.com.'
+                'To exercise these rights, please contact us at info@thelegendit.com.'
             ]
         }
     ];
@@ -121,7 +121,7 @@ const Privacy: React.FC = () => {
                         If you have any questions or structure about our Privacy Policy, please contact us.
                     </p>
                     <a
-                        href="mailto:info@neexzen.com"
+                        href="mailto:info@thelegendit.com"
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-medium hover:bg-neutral-200 transition-colors"
                     >
                         Contact Support

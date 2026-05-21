@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
   });
 
   const contactInfo = [
-    { icon: <Mail size={20} />, label: 'Email', value: 'info@neexzen.com', href: 'mailto:info@neexzen.com' },
+    { icon: <Mail size={20} />, label: 'Email', value: 'info@thelegendit.com', href: 'mailto:info@thelegendit.com' },
     { icon: <Phone size={20} />, label: 'Phone', value: '+880 1304 984 437', href: 'tel:+8801304984437' },
     { icon: <MapPin size={20} />, label: 'Location', value: 'Bashundhara R/A, Dhaka', href: '#' },
     { icon: <Clock size={20} />, label: 'Hours', value: 'Mon - Fri, 9AM - 6PM BST', href: '#' },

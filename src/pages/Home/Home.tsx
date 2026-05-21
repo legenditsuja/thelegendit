@@ -37,7 +37,7 @@ const processSteps = [
 ];
 
 const testimonials = [
-  { quote: 'Neexzen transformed our business with their AI-powered solutions. The platform they delivered exceeded every expectation.', author: 'Sarah Chen', role: 'CTO, TechVentures', rating: 5, initial: 'SC', color: '#a78bfa' },
+  { quote: 'The Legend It transformed our business with their AI-powered solutions. The platform they delivered exceeded every expectation.', author: 'Sarah Chen', role: 'CTO, TechVentures', rating: 5, initial: 'SC', color: '#a78bfa' },
   { quote: 'Their ML expertise helped us achieve a 40% increase in operational efficiency. Outstanding team to work with.', author: 'Michael Roberts', role: 'CEO, DataFlow Inc', rating: 5, initial: 'MR', color: '#38bdf8' },
   { quote: 'A truly collaborative partner. They delivered a product our customers absolutely love. 10/10 would recommend.', author: 'Emily Watson', role: 'Product Lead, Innovate Labs', rating: 5, initial: 'EW', color: '#34d399' },
 ];
@@ -49,7 +49,7 @@ const faqs = [
   { q: 'What industries do you serve?', a: 'We work across fintech, healthcare, e-commerce, edtech, SaaS, and enterprise sectors — bringing deep domain expertise to every project.' },
 ];
 
-const clients = ['Unies', 'Uixpertise', 'Lyvaa', 'Neexzen', 'Tusqa Well Being', 'AcholComputers', 'Dr Shaiful Islam', 'N3X Venture'];
+const clients = ['Unies', 'Uixpertise', 'Lyvaa', 'The Legend It', 'Tusqa Well Being', 'AcholComputers', 'Dr Shaiful Islam', 'N3X Venture'];
 
 /* ─── Animated Counter ─── */
 function useCounter(target: number, inView: boolean) {
