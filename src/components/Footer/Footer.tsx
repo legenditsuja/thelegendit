@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block">
-              <h1 className='text-4xl font-extrabold'>The Legend It</h1>
+              <h1 className='text-4xl font-extrabold text-white dark:text-white'>The Legend It</h1>
             </Link>
             <p className="mt-6 text-neutral-400 text-sm leading-relaxed max-w-sm">
               Building breakthrough software solutions for the modern enterprise.

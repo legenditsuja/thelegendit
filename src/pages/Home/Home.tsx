@@ -480,7 +480,7 @@ const Home: React.FC = () => {
                     whileHover={{ boxShadow: '0 0 0 1.5px rgba(167,139,250,0.45)', scale: 1.02 }}
                     transition={{ duration: 0.2, ease: 'easeIn' }}
                   >
-                    <span className="font-display text-2xl font-black" style={{ color: 'rgba(167,139,250,0.4)' }}>{step.number}</span>
+                    <span className="font-display text-2xl font-black text-white" >{step.number}</span>
                   </motion.div>
 
                   <div className="flex items-center gap-2 mb-2">
