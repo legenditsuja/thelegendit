@@ -105,7 +105,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <main className="bg-black text-white">
+    <main className="bg-neutral-50 text-neutral-900 dark:bg-black dark:text-white transition-colors duration-300">
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-[50vh] md:min-h-[60vh] flex items-center overflow-hidden py-12 md:py-16 lg:py-20">
         <CursorGlow containerRef={heroRef} />
@@ -184,13 +184,13 @@ const Contact: React.FC = () => {
                   <div>
                     <label htmlFor="service" className="block text-sm text-neutral-300 mb-2">What can we help with?</label>
                     <select id="service" className="input" value={formData.service} onChange={handleInputChange} required>
-                      <option value="" className="bg-black">Select a service</option>
-                      <option value="web" className="bg-black">Web Development</option>
-                      <option value="ai" className="bg-black">AI & Machine Learning</option>
-                      <option value="design" className="bg-black">UI/UX Design</option>
-                      <option value="mobile" className="bg-black">Mobile Development</option>
-                      <option value="consulting" className="bg-black">Technical Consulting</option>
-                      <option value="other" className="bg-black">Other</option>
+                      <option value="" className="bg-white dark:bg-black text-neutral-950 dark:text-white">Select a service</option>
+                      <option value="web" className="bg-white dark:bg-black text-neutral-950 dark:text-white">Web Development</option>
+                      <option value="ai" className="bg-white dark:bg-black text-neutral-950 dark:text-white">AI & Machine Learning</option>
+                      <option value="design" className="bg-white dark:bg-black text-neutral-950 dark:text-white">UI/UX Design</option>
+                      <option value="mobile" className="bg-white dark:bg-black text-neutral-950 dark:text-white">Mobile Development</option>
+                      <option value="consulting" className="bg-white dark:bg-black text-neutral-950 dark:text-white">Technical Consulting</option>
+                      <option value="other" className="bg-white dark:bg-black text-neutral-950 dark:text-white">Other</option>
                     </select>
                   </div>
 

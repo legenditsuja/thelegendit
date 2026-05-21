@@ -175,7 +175,7 @@ const Home: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <main className="bg-black text-white overflow-hidden">
+    <main className="bg-neutral-50 text-neutral-900 dark:bg-black dark:text-white overflow-hidden transition-colors duration-300">
 
       {/* ════════════════════════════════════════
           HERO — UNCHANGED

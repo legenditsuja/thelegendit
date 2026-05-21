@@ -94,7 +94,7 @@ const renderContent = (content: string[], color: string) =>
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="font-display text-2xl md:text-3xl font-bold text-white mt-14 mb-5 flex items-center gap-3"
+                    className="font-display text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-14 mb-5 flex items-center gap-3"
                 >
                     <span className="w-1 h-7 rounded-full flex-shrink-0" style={{ background: color }} />
                     {block.replace('## ', '')}
@@ -108,7 +108,7 @@ const renderContent = (content: string[], color: string) =>
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: 0.04 }}
-                className="text-neutral-400 leading-[1.9] mb-6 text-[15px] md:text-base"
+                className="text-neutral-600 dark:text-neutral-400 leading-[1.9] mb-6 text-[15px] md:text-base"
             >
                 {block}
             </motion.p>
@@ -153,9 +153,9 @@ const BlogDetails: React.FC = () => {
 
     if (!post) {
         return (
-            <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6 gap-6">
-                <div className="w-16 h-16 rounded-2xl border border-neutral-800 flex items-center justify-center">
-                    <BookOpen size={28} className="text-neutral-500" />
+            <div className="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-black dark:text-white flex flex-col items-center justify-center p-6 gap-6 transition-colors duration-300">
+                <div className="w-16 h-16 rounded-2xl border border-neutral-200 dark:border-neutral-800 flex items-center justify-center">
+                    <BookOpen size={28} className="text-neutral-400 dark:text-neutral-500" />
                 </div>
                 <h2 className="text-2xl font-display font-bold">Post not found</h2>
                 <p className="text-neutral-500 text-sm">This article doesn't exist or has been removed.</p>
@@ -167,7 +167,7 @@ const BlogDetails: React.FC = () => {
     }
 
     return (
-        <main className="bg-black text-white min-h-screen">
+        <main className="bg-neutral-50 text-neutral-900 dark:bg-black dark:text-white transition-colors duration-300 min-h-screen">
             {/* ── Reading progress bar ── */}
             <motion.div
                 className="fixed top-0 left-0 right-0 h-[2px] z-[100] origin-left"
@@ -230,7 +230,7 @@ const BlogDetails: React.FC = () => {
 
                         {/* Title */}
                         <motion.h1
-                            className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-black text-white leading-[1.1] tracking-tight mb-8"
+                            className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-black text-neutral-900 dark:text-white leading-[1.1] tracking-tight mb-8"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.15, duration: 0.7 }}

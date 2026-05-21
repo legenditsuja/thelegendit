@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, ArrowRight, Code, Smartphone, Brain } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,24 +53,16 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Announcement Bar - Hidden for now
-      <div className="fixed top-0 left-0 right-0 z-50 bg-purple-600">
-        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-3 text-sm">
-          <span className="text-white/90">Free AI consultation for startups</span>
-          <Link to="/contact" className="text-white font-medium inline-flex items-center gap-1 hover:underline underline-offset-2">
-            Book now <ArrowRight size={12} />
-          </Link>
-        </div>
-      </div>
-      */}
-
       {/* Main Navbar */}
-      <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${isScrolled ? 'bg-black/95 backdrop-blur-xl border-b border-neutral-800' : 'bg-transparent'
-        }`}>
+      <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-white/95 border-b border-neutral-200 dark:bg-black/95 dark:border-neutral-800 shadow-sm backdrop-blur-xl' 
+          : 'bg-transparent border-b border-transparent'
+      }`}>
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'}`}>
             <Link to="/" className="flex items-center gap-2 group">
-             <h1 className='text-2xl font-bold'>The Legend It</h1>
+             <h1 className='text-2xl font-bold text-neutral-900 dark:text-white transition-colors duration-300'>The Legend It</h1>
             </Link>
 
             {/* Desktop Navigation */}
@@ -84,7 +77,10 @@ const Navbar: React.FC = () => {
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      `px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${isActive ? 'text-white' : 'text-neutral-300 hover:text-white'
+                      `px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
+                        isActive 
+                          ? 'text-neutral-900 dark:text-white font-semibold' 
+                          : 'text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white'
                       }`
                     }
                   >
@@ -102,23 +98,24 @@ const Navbar: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.96 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute top-full left-0 mt-2 py-2 w-72 bg-neutral-900 border border-neutral-700 rounded-2xl shadow-2xl overflow-hidden"
+                        className="absolute top-full left-0 mt-2 py-2 w-72 bg-white border border-neutral-200 dark:bg-neutral-900 dark:border-neutral-700 rounded-2xl shadow-2xl overflow-hidden"
                       >
                         {item.dropdown.map((dropItem) => (
                           <Link
                             key={dropItem.name}
                             to="/services"
-                            className="flex items-center gap-3 px-4 py-3 hover:bg-neutral-800 transition-colors"
+                            className="flex items-center gap-3 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors"
                           >
-                            <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${dropItem.color === 'purple' ? 'bg-purple-500/10 text-purple-400' :
-                              dropItem.color === 'blue' ? 'bg-blue-500/10 text-blue-400' :
-                                'bg-emerald-500/10 text-emerald-400'
-                              }`}>
+                            <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
+                              dropItem.color === 'purple' ? 'bg-purple-500/10 text-purple-600 dark:text-purple-400' :
+                              dropItem.color === 'blue' ? 'bg-blue-500/10 text-blue-600 dark:text-blue-400' :
+                              'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
+                            }`}>
                               {dropItem.icon}
                             </div>
                             <div>
-                              <p className="text-sm font-medium text-white">{dropItem.name}</p>
-                              <p className="text-xs text-neutral-400">{dropItem.description}</p>
+                              <p className="text-sm font-medium text-neutral-900 dark:text-white">{dropItem.name}</p>
+                              <p className="text-xs text-neutral-500 dark:text-neutral-400">{dropItem.description}</p>
                             </div>
                           </Link>
                         ))}
@@ -129,21 +126,25 @@ const Navbar: React.FC = () => {
               ))}
             </div>
 
-            {/* CTA */}
+            {/* CTA & ThemeToggle */}
             <div className="hidden lg:flex items-center gap-3">
-              <Link to="/contact" className="px-5 py-2.5 text-sm font-medium text-black bg-white hover:bg-neutral-100 rounded-full transition-all duration-200">
+              <ThemeToggle />
+              <Link to="/contact" className="px-5 py-2.5 text-sm font-medium text-white bg-neutral-950 hover:bg-neutral-800 dark:text-black dark:bg-white dark:hover:bg-neutral-100 rounded-full transition-all duration-200">
                 Get Started
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 -mr-2 text-white hover:bg-neutral-800 rounded-lg transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile Actions */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <ThemeToggle />
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2 text-neutral-800 hover:text-neutral-950 dark:text-white dark:hover:bg-neutral-800 rounded-lg transition-colors"
+                aria-label="Toggle menu"
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </nav>
       </header>
@@ -157,7 +158,7 @@ const Navbar: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/50 dark:bg-black/80 backdrop-blur-sm z-40 lg:hidden"
             />
 
             <motion.div
@@ -165,12 +166,12 @@ const Navbar: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-neutral-900 border-l border-neutral-700 z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white dark:bg-neutral-950 border-l border-neutral-200 dark:border-neutral-800 z-50 lg:hidden overflow-y-auto"
             >
               <div className="p-6">
                 <div className="flex items-center justify-between mb-8">
-                  <span className="text-xl font-display font-bold text-white">Menu</span>
-                  <button onClick={() => setIsOpen(false)} className="p-2 text-neutral-300 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors">
+                  <span className="text-xl font-display font-bold text-neutral-900 dark:text-white">Menu</span>
+                  <button onClick={() => setIsOpen(false)} className="p-2 text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors">
                     <X size={24} />
                   </button>
                 </div>
@@ -181,7 +182,10 @@ const Navbar: React.FC = () => {
                       key={item.name}
                       to={item.path}
                       className={({ isActive }) =>
-                        `block px-4 py-3 text-lg font-medium rounded-xl transition-all ${isActive ? 'text-white bg-neutral-800' : 'text-neutral-300 hover:text-white hover:bg-neutral-800'
+                        `block px-4 py-3 text-lg font-medium rounded-xl transition-all ${
+                          isActive 
+                            ? 'text-neutral-950 bg-neutral-100 dark:text-white dark:bg-neutral-900' 
+                            : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-900/50'
                         }`
                       }
                     >
@@ -190,11 +194,11 @@ const Navbar: React.FC = () => {
                   ))}
                 </nav>
 
-                <div className="mt-8 pt-8 border-t border-neutral-700">
+                <div className="mt-8 pt-8 border-t border-neutral-200 dark:border-neutral-800">
                   <Link
                     to="/contact"
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full py-3 text-sm font-medium text-black bg-white hover:bg-neutral-100 rounded-full transition-all"
+                    className="flex items-center justify-center gap-2 w-full py-3 text-sm font-medium text-white bg-neutral-950 hover:bg-neutral-850 dark:text-black dark:bg-white dark:hover:bg-neutral-100 rounded-full transition-all"
                   >
                     Get Started
                     <ArrowRight size={16} />

@@ -504,7 +504,7 @@ const Projects: React.FC = () => {
   const selectedIndex = selectedProject ? projects.findIndex(p => p.id === selectedProject.id) : 0;
 
   return (
-    <main className="bg-black text-white">
+    <main className="bg-neutral-50 text-neutral-900 dark:bg-black dark:text-white transition-colors duration-300">
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-fit md:min-h-[80vh] flex items-center overflow-hidden py-8 md:py-10 lg:py-12">
         <CursorGlow containerRef={heroRef} />

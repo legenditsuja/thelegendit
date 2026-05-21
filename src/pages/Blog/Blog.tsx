@@ -205,7 +205,7 @@ const Blog: React.FC = () => {
   const regularPosts = useMemo(() => filteredPosts.filter(p => !p.featured), [filteredPosts]);
 
   return (
-    <main className="bg-black text-white">
+    <main className="bg-neutral-50 text-neutral-900 dark:bg-black dark:text-white transition-colors duration-300">
       {/* ── Ambient background ── */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 right-1/3 w-[800px] h-[800px] bg-purple-600/8 rounded-full blur-[160px]" />
@@ -275,18 +275,17 @@ const Blog: React.FC = () => {
       </section>
 
       {/* ── Sticky search + filter bar ── */}
-      <div className="sticky top-0 z-40 border-t border-b border-neutral-800/50 py-4 backdrop-blur-xl" style={{ background: 'rgba(0,0,0,0.88)' }}>
+      <div className="sticky top-0 z-40 border-y border-neutral-200/50 dark:border-neutral-800/50 py-4 backdrop-blur-xl bg-white/85 dark:bg-black/85 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
           {/* Search */}
           <div className="relative flex-1 max-w-xs">
-            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-500 pointer-events-none" />
+            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-500 pointer-events-none" />
             <input
               type="text"
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
               placeholder="Search articles…"
-              className="w-full h-10 pl-9 pr-9 rounded-xl text-sm text-white placeholder-neutral-600 border border-neutral-800 outline-none focus:border-neutral-600 transition-colors"
-              style={{ background: 'rgba(255,255,255,0.04)' }}
+              className="w-full h-10 pl-9 pr-9 rounded-xl text-sm text-neutral-900 placeholder-neutral-400 border border-neutral-200 focus:border-neutral-355 dark:text-white dark:placeholder-neutral-600 dark:border-neutral-800 dark:focus:border-neutral-600 transition-colors outline-none bg-neutral-100/50 dark:bg-white/5"
             />
             <AnimatePresence>
               {searchTerm && (
@@ -438,8 +437,7 @@ const Blog: React.FC = () => {
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 h-12 px-5 rounded-2xl text-sm text-white placeholder-neutral-600 border border-neutral-800 outline-none focus:border-purple-500/50 transition-colors"
-                style={{ background: 'rgba(255,255,255,0.04)' }}
+                className="flex-1 h-12 px-5 rounded-2xl text-sm text-neutral-900 placeholder-neutral-400 border border-neutral-200 focus:border-neutral-300 dark:text-white dark:placeholder-neutral-600 dark:border-neutral-800 dark:focus:border-neutral-650 transition-colors outline-none bg-neutral-100/50 dark:bg-white/5"
               />
               <motion.button
                 type="submit"

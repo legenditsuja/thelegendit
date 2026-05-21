@@ -400,7 +400,7 @@ const Services: React.FC = () => {
   const handleClose = useCallback(() => setSelectedService(null), []);
 
   return (
-    <main className="bg-black text-white relative">
+    <main className="bg-neutral-50 text-neutral-900 dark:bg-black dark:text-white transition-colors duration-300 relative">
       {/* Animated background */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] animate-slow-spin">
@@ -456,19 +456,18 @@ const Services: React.FC = () => {
       </section>
 
       {/* Search + Filter bar */}
-      <section className="sticky top-0 z-40 border-t border-neutral-800/50 py-4 backdrop-blur-xl" style={{ background: 'rgba(0,0,0,0.85)' }}>
+      <section className="sticky top-0 z-40 border-y border-neutral-200/50 dark:border-neutral-800/50 py-4 backdrop-blur-xl bg-white/85 dark:bg-black/85 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
             {/* Search input */}
             <div className="relative flex-1 max-w-md">
-              <Search size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 pointer-events-none" />
+              <Search size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-500 pointer-events-none" />
               <input
                 type="text"
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 placeholder="Search services, features..."
-                className="w-full h-11 pl-10 pr-4 rounded-xl text-sm text-white placeholder-neutral-600 border border-neutral-800 outline-none focus:border-neutral-600 transition-colors"
-                style={{ background: 'rgba(255,255,255,0.04)' }}
+                className="w-full h-11 pl-10 pr-4 rounded-xl text-sm text-neutral-900 placeholder-neutral-400 border border-neutral-200 focus:border-neutral-300 dark:text-white dark:placeholder-neutral-600 dark:border-neutral-800 dark:focus:border-neutral-600 transition-colors outline-none bg-neutral-100/50 dark:bg-white/5"
               />
               <AnimatePresence>
                 {query && (

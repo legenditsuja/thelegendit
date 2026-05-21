@@ -77,7 +77,7 @@ const About: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <main className="bg-black text-white">
+    <main className="bg-neutral-50 text-neutral-900 dark:bg-black dark:text-white transition-colors duration-300">
       {/* ── HERO (UNCHANGED) ── */}
       <section ref={heroRef} className="relative min-h-fit md:min-h-[60vh] flex items-center overflow-hidden py-12 md:py-16 lg:py-20">
         <CursorGlow containerRef={heroRef} />
