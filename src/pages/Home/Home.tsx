@@ -11,9 +11,9 @@ import Hero3D from '../../components/Hero3D/Hero3D';
 
 /* ─── Data ─── */
 const stats = [
-  { num: 15, suffix: '+', label: 'Projects Delivered', desc: 'End-to-end products shipped across 5+ countries.', color: '#ffffffff', bg: 'rgba(255, 255, 255, 0.06)', border: 'rgba(167,139,250,0.18)' },
-  { num: 20, suffix: '+', label: 'Happy Clients', desc: 'Long-term partnerships built on trust & results.', color: '#ffffffff', bg: 'rgba(255, 255, 255, 0.06)', border: 'rgba(255, 255, 255, 0.18)' },
-  { num: 5, suffix: '+', label: 'Years of Expertise', desc: 'Deep mastery in software, AI & digital strategy.', color: '#ffffffff', bg: 'rgba(52,211,153,0.06)', border: 'rgba(255, 255, 255, 0.18)' },
+  { num: 15, suffix: '+', label: 'Projects Delivered', desc: 'End-to-end products shipped across 5+ countries.', color: '#a78bfa' },
+  { num: 20, suffix: '+', label: 'Happy Clients', desc: 'Long-term partnerships built on trust & results.', color: '#38bdf8' },
+  { num: 5, suffix: '+', label: 'Years of Expertise', desc: 'Deep mastery in software, AI & digital strategy.', color: '#34d399' },
 ];
 
 const topProjects = [
@@ -76,48 +76,63 @@ const StatBlock: React.FC<{ stat: typeof stats[0]; index: number }> = ({ stat, i
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const count = useCounter(stat.num, inView);
 
+  const themes = [
+    {
+      accent: '#a78bfa',
+      borderClass: 'border-purple-200 dark:border-purple-900/30',
+      bgClass: 'bg-purple-50/40 dark:bg-purple-950/5',
+      textClass: 'text-purple-600 dark:text-purple-400',
+    },
+    {
+      accent: '#38bdf8',
+      borderClass: 'border-sky-200 dark:border-sky-900/30',
+      bgClass: 'bg-sky-50/40 dark:bg-sky-950/5',
+      textClass: 'text-sky-600 dark:text-sky-400',
+    },
+    {
+      accent: '#34d399',
+      borderClass: 'border-emerald-200 dark:border-emerald-900/30',
+      bgClass: 'bg-emerald-50/40 dark:bg-emerald-950/5',
+      textClass: 'text-emerald-600 dark:text-emerald-400',
+    },
+  ];
+  const t = themes[index] || themes[0];
+
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative flex flex-col justify-between p-8 rounded-3xl overflow-hidden"
+      className={`group relative flex flex-col justify-between p-8 rounded-3xl overflow-hidden border transition-all duration-300 ${t.borderClass} ${t.bgClass}`}
       style={{
-        background: stat.bg,
-        border: `1px solid ${stat.border}`,
         minHeight: '260px',
       }}
       whileHover={{
         y: -6,
-        borderColor: stat.color,
-        boxShadow: `0 0 40px ${stat.color}25, 0 16px 48px rgba(0,0,0,0.4)`,
+        borderColor: t.accent,
+        boxShadow: `0 0 40px ${t.accent}25, 0 16px 48px rgba(0,0,0,0.06)`,
       }}
     >
       {/* Corner glow */}
-      <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full blur-[60px] opacity-0 group-hover:opacity-60 transition-opacity duration-700" style={{ background: stat.color }} />
+      <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full blur-[60px] opacity-0 group-hover:opacity-60 transition-opacity duration-700" style={{ background: t.accent }} />
 
       {/* Top row */}
       <div className="flex items-center justify-between mb-6">
         <span
-          className="text-[10px] font-black tracking-[0.2em] uppercase px-3 py-1 rounded-full"
-          style={{ color: stat.color, background: `${stat.color}18`, border: `1px solid ${stat.color}30` }}
+          className={`text-[10px] font-black tracking-[0.2em] uppercase px-3 py-1 rounded-full border ${t.borderClass} ${t.bgClass} ${t.textClass}`}
         >
           Impact
         </span>
-        <TrendingUp size={16} style={{ color: stat.color }} className="opacity-40 group-hover:opacity-100 transition-opacity" />
+        <TrendingUp size={16} className={`opacity-40 group-hover:opacity-100 transition-opacity ${t.textClass}`} />
       </div>
 
       {/* Big number */}
       <div
-        className="font-display font-black leading-none tracking-tighter mb-4 select-none"
+        className={`font-display font-black leading-none tracking-tighter mb-4 select-none ${t.textClass}`}
         style={{
           fontSize: 'clamp(5rem, 10vw, 7.5rem)',
-          background: `linear-gradient(135deg, ${stat.color} 10%, #ffffff 90%)`,
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
-          filter: `drop-shadow(0 0 20px ${stat.color}50)`,
+          filter: `drop-shadow(0 4px 12px rgba(0,0,0,0.04))`,
         }}
       >
         {count}{stat.suffix}
@@ -125,9 +140,9 @@ const StatBlock: React.FC<{ stat: typeof stats[0]; index: number }> = ({ stat, i
 
       {/* Bottom */}
       <div>
-        <div className="w-8 h-[2px] mb-3 rounded-full" style={{ background: stat.color }} />
-        <p className="font-display text-base font-bold text-white mb-1">{stat.label}</p>
-        <p className="text-xs text-neutral-500 leading-relaxed">{stat.desc}</p>
+        <div className="w-8 h-[2px] mb-3 rounded-full" style={{ background: t.accent }} />
+        <p className="font-display text-base font-bold text-neutral-900 dark:text-white mb-1">{stat.label}</p>
+        <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">{stat.desc}</p>
       </div>
     </motion.div>
   );
@@ -194,9 +209,9 @@ const Home: React.FC = () => {
                 <span className="text-sm text-purple-300">Now accepting new projects</span>
               </motion.div>
               <h1 className="hero-title">
-                <span className="block text-white">We Build</span>
+                <span className="block text-neutral-900 dark:text-white">We Build</span>
                 <span className="block text-shimmer">Digital Products</span>
-                <span className="block text-neutral-400">That Matter</span>
+                <span className="block text-neutral-600 dark:text-neutral-400">That Matter</span>
               </h1>
               <p className="hero-subtitle mt-6 mx-auto lg:mx-0">
                 From AI-powered innovations to pixel-perfect interfaces, we craft software solutions that transform businesses.
@@ -289,7 +304,7 @@ const Home: React.FC = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
                 By The Numbers
               </div>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-[3.6rem] font-black text-white leading-[1.05] tracking-tight">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[3.6rem] font-black text-neutral-900 dark:text-white leading-[1.05] tracking-tight">
                 Driving real
                 <span
                   className="block"
@@ -390,9 +405,8 @@ const Home: React.FC = () => {
               >
                 <Link to="/services" className="block h-full group">
                   <motion.div
-                    className="relative rounded-2xl overflow-hidden h-full flex flex-col p-7"
-                    style={{ background: 'linear-gradient(160deg,#0e0e1c,#08080f)', boxShadow: '0 0 0 1px rgba(255,255,255,0.06)' }}
-                    whileHover={{ y: -2, boxShadow: `0 0 0 1px ${svc.color}30, 0 6px 16px rgba(0,0,0,0.28)` }}
+                    className="relative rounded-2xl overflow-hidden h-full flex flex-col p-7 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-gradient-to-br dark:from-[#0e0e1c] dark:to-[#08080f] transition-all duration-300"
+                    whileHover={{ y: -2, boxShadow: `0 0 0 1px ${svc.color}30, 0 6px 16px rgba(0,0,0,0.06)` }}
                     transition={{ duration: 0.2, ease: 'easeIn' }}
                   >
                     {/* Accent top bar */}
@@ -403,14 +417,14 @@ const Home: React.FC = () => {
                       {svc.icon}
                     </div>
 
-                    <h3 className="font-display text-xl font-bold text-white mb-3">{svc.title}</h3>
-                    <p className="text-neutral-500 text-sm leading-relaxed mb-5 flex-1">{svc.description}</p>
+                    <h3 className="font-display text-xl font-bold text-neutral-900 dark:text-white mb-3">{svc.title}</h3>
+                    <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-5 flex-1">{svc.description}</p>
 
                     {/* Feature list */}
                     <ul className="space-y-2 mb-6">
                       {svc.features.map(f => (
-                        <li key={f} className="flex items-center gap-2 text-xs text-neutral-400">
-                          <CheckCircle2 size={12} style={{ color: svc.color }} className="flex-shrink-0" />
+                        <li key={f} className="flex items-center gap-2 text-xs text-neutral-650 dark:text-neutral-400">
+                           <CheckCircle2 size={12} style={{ color: svc.color }} className="flex-shrink-0" />
                           {f}
                         </li>
                       ))}
@@ -418,7 +432,7 @@ const Home: React.FC = () => {
 
                     {/* CTA row */}
                     <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: `${svc.color}15` }}>
-                      <span className="text-xs text-neutral-600">Click to explore</span>
+                      <span className="text-xs text-neutral-500 dark:text-neutral-600">Click to explore</span>
                       <motion.span className="flex items-center gap-1 text-xs font-bold" style={{ color: svc.color }} whileHover={{ x: 3 }} transition={{ duration: 0.15 }}>
                         Learn more <ArrowUpRight size={12} />
                       </motion.span>
@@ -471,9 +485,9 @@ const Home: React.FC = () => {
 
                   <div className="flex items-center gap-2 mb-2">
                     <div className="text-purple-400">{step.icon}</div>
-                    <h3 className="font-display text-lg font-bold text-white">{step.title}</h3>
+                    <h3 className="font-display text-lg font-bold text-neutral-900 dark:text-white">{step.title}</h3>
                   </div>
-                  <p className="text-neutral-500 text-sm leading-relaxed">{step.description}</p>
+                  <p className="text-neutral-650 dark:text-neutral-400 text-sm leading-relaxed">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -499,9 +513,8 @@ const Home: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.48, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative rounded-2xl overflow-hidden p-7 flex flex-col gap-5"
-                style={{ background: 'linear-gradient(160deg,#0e0e1c,#08080f)', boxShadow: '0 0 0 1px rgba(255,255,255,0.06)' }}
-                whileHover={{ y: -5, boxShadow: `0 0 0 1.5px ${item.color}40, 0 12px 40px rgba(0,0,0,0.5)` }}
+                className="group relative rounded-2xl overflow-hidden p-7 flex flex-col gap-5 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-gradient-to-br dark:from-[#0e0e1c] dark:to-[#08080f] transition-all duration-300"
+                whileHover={{ y: -5, boxShadow: `0 0 0 1.5px ${item.color}40, 0 12px 40px rgba(0,0,0,0.08)` }}
               >
                 {/* Accent top bar */}
                 <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(90deg,transparent,${item.color}70,transparent)` }} />
@@ -514,7 +527,7 @@ const Home: React.FC = () => {
                 </div>
 
                 {/* Quote */}
-                <p className="text-neutral-300 text-sm leading-relaxed flex-1">"{item.quote}"</p>
+                <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed flex-1">"{item.quote}"</p>
 
                 {/* Author */}
                 <div className="flex items-center gap-3 pt-4 border-t" style={{ borderColor: `${item.color}15` }}>
@@ -525,7 +538,7 @@ const Home: React.FC = () => {
                     {item.initial}
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-white">{item.author}</p>
+                    <p className="text-sm font-bold text-neutral-900 dark:text-white">{item.author}</p>
                     <p className="text-[11px] text-neutral-500">{item.role}</p>
                   </div>
                 </div>
@@ -560,12 +573,11 @@ const Home: React.FC = () => {
                   transition={{ duration: 0.38, delay: i * 0.08 }}
                 >
                   <motion.div
-                    className="rounded-2xl overflow-hidden border transition-all duration-300"
-                    animate={isOpen
-                      ? { borderColor: 'rgba(167,139,250,0.35)', boxShadow: '0 0 0 1px rgba(167,139,250,0.2), 0 8px 32px rgba(167,139,250,0.12)' }
-                      : { borderColor: 'rgba(255,255,255,0.06)', boxShadow: 'none' }
-                    }
-                    style={{ background: isOpen ? 'rgba(14,14,28,0.95)' : 'rgba(255,255,255,0.02)' }}
+                    className={`rounded-2xl overflow-hidden border transition-all duration-300 ${
+                      isOpen
+                        ? 'border-purple-300 dark:border-purple-500/35 bg-purple-50/30 dark:bg-[#0e0e1c]/95'
+                        : 'border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-white/2'
+                    }`}
                   >
                     <button
                       onClick={() => setOpenFaq(isOpen ? null : i)}
@@ -573,16 +585,16 @@ const Home: React.FC = () => {
                     >
                       {/* Number pill */}
                       <div
-                        className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-xs font-black font-mono transition-all duration-300"
-                        style={isOpen
-                          ? { background: 'linear-gradient(135deg,#7c3aed,#a78bfa)', color: '#fff', boxShadow: '0 4px 16px rgba(167,139,250,0.4)' }
-                          : { background: 'rgba(255,255,255,0.05)', color: 'rgb(115,115,115)' }
-                        }
+                        className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-xs font-black font-mono transition-all duration-300 ${
+                          isOpen
+                            ? 'bg-gradient-to-br from-purple-600 to-purple-400 text-white shadow-lg shadow-purple-500/20'
+                            : 'bg-neutral-100 text-neutral-550 dark:bg-white/5 dark:text-neutral-400'
+                        }`}
                       >
                         {String(i + 1).padStart(2, '0')}
                       </div>
 
-                      <span className={`flex-1 font-display text-base font-semibold transition-colors duration-300 ${isOpen ? 'text-white' : 'text-neutral-300'}`}>
+                      <span className={`flex-1 font-display text-base font-semibold transition-colors duration-300 ${isOpen ? 'text-purple-600 dark:text-white' : 'text-neutral-800 dark:text-neutral-300'}`}>
                         {faq.q}
                       </span>
 
@@ -608,7 +620,7 @@ const Home: React.FC = () => {
                         >
                           <div className="px-6 pb-6 pl-20">
                             <div className="h-px mb-4" style={{ background: 'linear-gradient(90deg,rgba(167,139,250,0.3),transparent)' }} />
-                            <p className="text-neutral-400 text-sm leading-relaxed">{faq.a}</p>
+                            <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">{faq.a}</p>
                           </div>
                         </motion.div>
                       )}
@@ -631,11 +643,11 @@ const Home: React.FC = () => {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              <span className="text-white">Ready to Build</span>
+              <span className="text-neutral-900 dark:text-white">Ready to Build</span>
               <br />
               <span className="text-shimmer">Something Great?</span>
             </h2>
-            <p className="mt-8 text-xl text-neutral-300 max-w-xl mx-auto">Let's transform your ideas into reality.</p>
+            <p className="mt-8 text-xl text-neutral-600 dark:text-neutral-350 max-w-xl mx-auto">Let's transform your ideas into reality.</p>
             <div className="mt-12">
               <Link to="/contact" className="btn-primary group text-base px-10 py-4">
                 Start Your Project

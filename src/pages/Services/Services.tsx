@@ -100,11 +100,14 @@ const ServiceCard: React.FC<{
       whileTap={{ scale: 0.98 }}
     >
       <motion.div
-        className="relative h-full rounded-2xl overflow-hidden flex flex-col"
-        style={{ background: 'linear-gradient(160deg, #0d0d1c 0%, #08080f 100%)' }}
+        className={`relative h-full rounded-2xl overflow-hidden flex flex-col border transition-all duration-300 ${
+          isSelected
+            ? 'border-neutral-350 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/90'
+            : 'border-neutral-200 dark:border-neutral-800 bg-white dark:bg-gradient-to-br dark:from-[#0d0d1c] dark:to-[#08080f]'
+        }`}
         animate={isSelected
-          ? { boxShadow: `0 0 0 1.5px ${theme.color}, 0 12px 48px ${theme.glow}, 0 2px 12px rgba(0,0,0,0.7)` }
-          : { boxShadow: '0 0 0 1px rgba(255,255,255,0.06), 0 2px 12px rgba(0,0,0,0.5)' }
+          ? { boxShadow: `0 0 0 1.5px ${theme.color}, 0 12px 48px ${theme.glow}` }
+          : { boxShadow: 'none' }
         }
         transition={{ duration: 0.3 }}
       >
@@ -151,10 +154,10 @@ const ServiceCard: React.FC<{
 
           {/* Title + description */}
           <div className="flex-1">
-            <h3 className="font-display text-[15px] font-bold text-white leading-snug mb-2 group-hover:text-white transition-colors">
+            <h3 className="font-display text-[15px] font-bold text-neutral-900 dark:text-white leading-snug mb-2 group-hover:text-purple-650 dark:group-hover:text-white transition-colors">
               {service.title}
             </h3>
-            <p className="text-neutral-500 text-xs leading-relaxed line-clamp-2">
+            <p className="text-neutral-600 dark:text-neutral-400 text-xs leading-relaxed line-clamp-2">
               {service.description}
             </p>
           </div>
@@ -164,7 +167,7 @@ const ServiceCard: React.FC<{
             className="flex items-center justify-between pt-3 border-t"
             style={{ borderColor: `${theme.color}15` }}
           >
-            <span className="text-[10px] font-medium text-neutral-600">
+            <span className="text-[10px] font-medium text-neutral-500 dark:text-neutral-600">
               {service.features.length} features
             </span>
             <motion.div
@@ -210,14 +213,10 @@ const ServiceDrawer: React.FC<{
 
       {/* Drawer panel */}
       <motion.aside
-        className="fixed top-0 right-0 bottom-0 z-[90] flex flex-col overflow-hidden"
+        className="fixed top-0 right-0 bottom-0 z-[90] flex flex-col overflow-hidden border-l border-neutral-200 dark:border-neutral-850 bg-white/98 dark:bg-neutral-950/98 backdrop-blur-3xl"
         style={{
           width: '100%',
           maxWidth: 440,
-          background: 'linear-gradient(160deg, rgba(11,11,22,0.99) 0%, rgba(7,7,13,1) 100%)',
-          backdropFilter: 'blur(30px)',
-          WebkitBackdropFilter: 'blur(30px)',
-          borderLeft: `1px solid ${theme.color}30`,
         }}
         initial={{ x: '110%' }}
         animate={{ x: 0 }}
@@ -259,8 +258,7 @@ const ServiceDrawer: React.FC<{
                 onClick={onClose}
                 whileHover={{ scale: 1.12, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-8 h-8 rounded-full flex items-center justify-center border border-white/10 text-white/40 hover:text-white hover:border-white/25 transition-all"
-                style={{ background: 'rgba(255,255,255,0.04)' }}
+                className="w-8 h-8 rounded-full flex items-center justify-center border border-neutral-200 dark:border-white/10 text-neutral-500 dark:text-white/40 hover:text-neutral-900 dark:hover:text-white hover:border-neutral-350 dark:hover:border-white/25 transition-all bg-neutral-100/50 dark:bg-white/5"
               >
                 <X size={13} />
               </motion.button>
@@ -276,10 +274,10 @@ const ServiceDrawer: React.FC<{
             <p className="text-[10px] font-bold uppercase tracking-[0.22em] mb-2" style={{ color: theme.color }}>
               Service Overview
             </p>
-            <h2 className="font-display text-2xl font-bold text-white leading-snug">
+            <h2 className="font-display text-2xl font-bold text-neutral-900 dark:text-white leading-snug">
               {service.title}
             </h2>
-            <p className="mt-2.5 text-sm text-neutral-400 leading-relaxed">
+            <p className="mt-2.5 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
               {service.description}
             </p>
           </motion.div>
@@ -310,7 +308,7 @@ const ServiceDrawer: React.FC<{
                   >
                     <CheckCircle2 size={11} style={{ color: theme.color }} />
                   </div>
-                  <span className="text-sm text-neutral-300">{f}</span>
+                  <span className="text-sm text-neutral-700 dark:text-neutral-300">{f}</span>
                 </motion.li>
               ))}
             </ul>
@@ -334,7 +332,7 @@ const ServiceDrawer: React.FC<{
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] mb-1" style={{ color: theme.color }}>
                   Ongoing Maintenance
                 </p>
-                <p className="text-sm text-neutral-300">{service.maintenance}</p>
+                <p className="text-sm text-neutral-750 dark:text-neutral-300">{service.maintenance}</p>
               </div>
             </div>
           </motion.div>
@@ -426,10 +424,10 @@ const Services: React.FC = () => {
               <span className="text-sm text-purple-300">What We Do</span>
             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75 }} className="hero-title">
-              <span className="text-white">Pick Your</span><br />
+              <span className="text-neutral-900 dark:text-white">Pick Your</span><br />
               <span className="text-shimmer">Services</span>
             </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="hero-subtitle mt-6 text-neutral-300 max-w-2xl">
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="hero-subtitle mt-6 text-neutral-600 dark:text-neutral-300 max-w-2xl">
               From AI-driven innovations to pixel-perfect development — a complete suite of services to elevate your business.
             </motion.p>
 
@@ -446,7 +444,7 @@ const Services: React.FC = () => {
                 { label: 'Technologies', val: technologies.length.toString() },
               ].map(({ label, val }) => (
                 <div key={label} className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-black text-white">{val}</span>
+                  <span className="font-display text-3xl font-black text-neutral-900 dark:text-white">{val}</span>
                   <span className="text-sm text-neutral-500">{label}</span>
                 </div>
               ))}
@@ -495,12 +493,16 @@ const Services: React.FC = () => {
                     onClick={() => setActiveCat(cat.id)}
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.96 }}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-300 border"
+                    className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-300 border ${
+                      isActive && theme
+                        ? ''
+                        : isActive
+                          ? 'bg-neutral-200 dark:bg-white/8 border-neutral-300 dark:border-white/15 text-neutral-900 dark:text-white'
+                          : 'bg-transparent border-neutral-200 dark:border-white/7 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
+                    }`}
                     style={isActive && theme
                       ? { background: theme.dim, borderColor: `${theme.color}45`, color: theme.color, boxShadow: `0 0 16px ${theme.glow}` }
-                      : isActive
-                        ? { background: 'rgba(255,255,255,0.08)', borderColor: 'rgba(255,255,255,0.15)', color: '#fff' }
-                        : { background: 'transparent', borderColor: 'rgba(255,255,255,0.07)', color: 'rgb(115,115,115)' }
+                      : undefined
                     }
                   >
                     {cat.icon}
@@ -520,10 +522,10 @@ const Services: React.FC = () => {
           {/* Result count + active filter label */}
           <motion.div layout className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="font-display text-xl font-bold text-white">
+              <h2 className="font-display text-xl font-bold text-neutral-900 dark:text-white">
                 {activeCat === 'all' ? 'All Services' : CATEGORY_META.find(c => c.id === activeCat)?.label}
               </h2>
-              <p className="text-neutral-500 text-sm mt-0.5">
+              <p className="text-neutral-550 dark:text-neutral-500 text-sm mt-0.5">
                 {filtered.length} result{filtered.length !== 1 ? 's' : ''}
                 {query ? ` for "${query}"` : ''}
               </p>
@@ -533,8 +535,7 @@ const Services: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 onClick={handleClose}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 text-xs text-neutral-400 hover:text-white transition-all"
-                style={{ background: 'rgba(255,255,255,0.04)' }}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl border border-neutral-250 dark:border-white/10 text-xs text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all bg-neutral-100/50 dark:bg-white/5"
               >
                 <X size={12} /> Clear selection
               </motion.button>

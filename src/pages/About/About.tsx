@@ -98,12 +98,12 @@ const About: React.FC = () => {
               </motion.div>
 
               <h1 className="hero-title">
-                <span className="text-white">Pioneering the</span>
+                <span className="text-neutral-900 dark:text-white">Pioneering the</span>
                 <br />
                 <span className="text-shimmer bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">Future of Digital</span>
               </h1>
 
-              <p className="hero-subtitle mt-6 max-w-xl text-neutral-300">
+              <p className="hero-subtitle mt-6 max-w-xl text-neutral-600 dark:text-neutral-300">
                 We craft intelligent, human-centered software solutions that
                 transform businesses and define the future of technology.
               </p>
@@ -137,7 +137,7 @@ const About: React.FC = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
               What Drives Us
             </span>
-            <h2 className="font-display text-4xl md:text-5xl font-black text-white tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-black text-neutral-900 dark:text-white tracking-tight">
               Purpose &{' '}
               <span style={{ background: 'linear-gradient(90deg,#a78bfa,#38bdf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Direction
@@ -167,8 +167,7 @@ const About: React.FC = () => {
               <motion.div
                 key={card.title}
                 {...fadeUp(i * 0.15)}
-                className="group relative rounded-3xl p-8 overflow-hidden"
-                style={{ background: 'linear-gradient(145deg,rgba(14,14,24,0.95),rgba(8,8,14,1))', border: '1px solid rgba(255,255,255,0.06)' }}
+                className="group relative rounded-3xl p-8 overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-gradient-to-br dark:from-[#0e0e18] dark:to-[#08080e] transition-all duration-300"
                 whileHover={{ borderColor: `${card.color}50`, boxShadow: `0 0 60px ${card.color}15`, y: -4 }}
                 transition={{ duration: 0.35 }}
               >
@@ -184,15 +183,15 @@ const About: React.FC = () => {
                     </div>
                     <div>
                       <span className="text-[10px] tracking-widest uppercase font-black" style={{ color: card.color }}>{card.tag}</span>
-                      <h3 className="font-display text-2xl font-bold text-white mt-0.5">{card.title}</h3>
+                      <h3 className="font-display text-2xl font-bold text-neutral-900 dark:text-white mt-0.5">{card.title}</h3>
                     </div>
                   </div>
 
-                  <p className="text-neutral-400 leading-relaxed mb-8">{card.text}</p>
+                  <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-8">{card.text}</p>
 
                   <ul className="space-y-2.5">
                     {card.items.map(item => (
-                      <li key={item} className="flex items-center gap-3 text-sm text-neutral-300">
+                      <li key={item} className="flex items-center gap-3 text-sm text-neutral-650 dark:text-neutral-300">
                         <CheckCircle2 size={14} style={{ color: card.color }} className="shrink-0" />
                         {item}
                       </li>
@@ -219,11 +218,11 @@ const About: React.FC = () => {
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-black tracking-[0.18em] uppercase mb-4" style={{ background: 'rgba(167,139,250,0.08)', border: '1px solid rgba(167,139,250,0.22)', color: '#a78bfa' }}>
                 <Sparkles size={11} /> Core Values
               </span>
-              <h2 className="font-display text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+              <h2 className="font-display text-4xl md:text-5xl font-black text-neutral-900 dark:text-white tracking-tight leading-tight">
                 What We Stand For
               </h2>
             </div>
-            <p className="text-sm text-neutral-500 max-w-xs leading-relaxed md:text-right">
+            <p className="text-sm text-neutral-550 dark:text-neutral-500 max-w-xs leading-relaxed md:text-right">
               These principles guide every decision, every line of code, and every client interaction.
             </p>
           </motion.div>
@@ -236,8 +235,7 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative rounded-3xl p-7 overflow-hidden flex flex-col"
-                style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', minHeight: '220px' }}
+                className="group relative rounded-3xl p-7 overflow-hidden flex flex-col border border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-white/2 transition-all duration-300"
                 whileHover={{ y: -6, borderColor: `${v.color}50`, boxShadow: `0 0 40px ${v.color}18` }}
               >
                 <div className="absolute -bottom-12 -right-12 w-32 h-32 rounded-full blur-[50px] opacity-0 group-hover:opacity-40 transition-opacity duration-700" style={{ background: v.color }} />
@@ -245,12 +243,12 @@ const About: React.FC = () => {
                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 border relative z-10" style={{ color: v.color, background: `${v.color}12`, borderColor: `${v.color}30` }}>
                   {v.icon}
                 </div>
-                <h3 className="font-display text-lg font-bold text-white mb-2 relative z-10">{v.title}</h3>
-                <p className="text-sm text-neutral-500 leading-relaxed relative z-10 flex-1">{v.description}</p>
+                <h3 className="font-display text-lg font-bold text-neutral-900 dark:text-white mb-2 relative z-10">{v.title}</h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-500 leading-relaxed relative z-10 flex-1">{v.description}</p>
 
                 <div className="mt-5 pt-4 border-t relative z-10 flex items-center gap-2" style={{ borderColor: `${v.color}15` }}>
                   <div className="w-6 h-[2px] rounded-full" style={{ background: v.color }} />
-                  <span className="text-[10px] tracking-widest uppercase font-black opacity-40 group-hover:opacity-100 transition-opacity" style={{ color: v.color }}>Learn more</span>
+                  <span className="text-[10px] tracking-widest uppercase font-black opacity-45 group-hover:opacity-100 transition-opacity" style={{ color: v.color }}>Learn more</span>
                 </div>
               </motion.div>
             ))}
@@ -275,14 +273,14 @@ const About: React.FC = () => {
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-black tracking-[0.18em] uppercase mb-4" style={{ background: 'rgba(167,139,250,0.08)', border: '1px solid rgba(167,139,250,0.22)', color: '#a78bfa' }}>
                 Our Story
               </span>
-              <h2 className="font-display text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+              <h2 className="font-display text-4xl md:text-5xl font-black text-neutral-900 dark:text-white tracking-tight leading-tight">
                 The{' '}
                 <span style={{ background: 'linear-gradient(90deg,#a78bfa,#f472b6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                   Journey
                 </span>
               </h2>
             </div>
-            <p className="text-sm text-neutral-500 max-w-xs leading-relaxed md:text-right">
+            <p className="text-sm text-neutral-555 dark:text-neutral-500 max-w-xs leading-relaxed md:text-right">
               Six years of building, shipping, and growing — one chapter at a time.
             </p>
           </motion.div>
@@ -296,12 +294,11 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.65, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className={`group relative rounded-3xl overflow-hidden cursor-default
+                className={`group relative rounded-3xl overflow-hidden cursor-default border transition-all duration-300
                   ${i === 0 || i === 6 ? 'md:col-span-2' : 'md:col-span-1'}
+                  border-neutral-200 dark:border-neutral-850 bg-white dark:bg-gradient-to-br dark:from-[#0e0e18] dark:to-[#08080e]
                 `}
                 style={{
-                  background: 'linear-gradient(145deg,rgba(14,14,24,0.95),rgba(8,8,14,1))',
-                  border: `1px solid rgba(255,255,255,0.05)`,
                   minHeight: i % 3 === 0 ? '280px' : '220px',
                 }}
                 whileHover={{
@@ -356,8 +353,8 @@ const About: React.FC = () => {
                   {/* Title & desc */}
                   <div className="mt-auto">
                     <div className="w-6 h-[2px] rounded-full mb-3" style={{ background: item.color }} />
-                    <h3 className="font-display text-base font-bold text-white mb-2 leading-tight">{item.title}</h3>
-                    <p className="text-xs text-neutral-500 leading-relaxed">{item.description}</p>
+                    <h3 className="font-display text-base font-bold text-neutral-900 dark:text-white mb-2 leading-tight">{item.title}</h3>
+                    <p className="text-xs text-neutral-650 dark:text-neutral-500 leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -391,11 +388,11 @@ const About: React.FC = () => {
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-black tracking-[0.18em] uppercase mb-4" style={{ background: 'rgba(167,139,250,0.08)', border: '1px solid rgba(167,139,250,0.22)', color: '#a78bfa' }}>
                 Our Team
               </span>
-              <h2 className="font-display text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+              <h2 className="font-display text-4xl md:text-5xl font-black text-neutral-900 dark:text-white tracking-tight leading-tight">
                 Meet the Experts
               </h2>
             </div>
-            <p className="text-sm text-neutral-500 max-w-xs leading-relaxed md:text-right">
+            <p className="text-sm text-neutral-550 dark:text-neutral-500 max-w-xs leading-relaxed md:text-right">
               A tight-knit group of builders, designers, and strategists obsessed with quality.
             </p>
           </motion.div>
@@ -408,8 +405,7 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative rounded-3xl overflow-hidden"
-                style={{ border: '1px solid rgba(255,255,255,0.06)' }}
+                className="group relative rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#07070d] transition-all duration-300"
                 whileHover={{ borderColor: `${member.color}50`, y: -6, boxShadow: `0 20px 60px ${member.color}15` }}
               >
                 {/* Photo */}
@@ -473,7 +469,7 @@ const About: React.FC = () => {
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-black tracking-[0.18em] uppercase mb-5" style={{ background: 'rgba(167,139,250,0.08)', border: '1px solid rgba(167,139,250,0.22)', color: '#a78bfa' }}>
               FAQ
             </span>
-            <h2 className="font-display text-4xl md:text-5xl font-black text-white tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-black text-neutral-900 dark:text-white tracking-tight">
               Common{' '}
               <span style={{ background: 'linear-gradient(90deg,#a78bfa,#38bdf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Questions
@@ -493,27 +489,26 @@ const About: React.FC = () => {
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                 >
                   <motion.div
-                    className="rounded-2xl overflow-hidden transition-all duration-300"
-                    animate={isOpen
-                      ? { borderColor: 'rgba(167,139,250,0.4)', boxShadow: '0 0 0 1px rgba(167,139,250,0.2), 0 8px 40px rgba(167,139,250,0.1)' }
-                      : { borderColor: 'rgba(255,255,255,0.06)', boxShadow: 'none' }
-                    }
-                    style={{ border: '1px solid rgba(255,255,255,0.06)', background: isOpen ? 'rgba(14,14,28,0.98)' : 'rgba(255,255,255,0.02)' }}
+                    className={`rounded-2xl overflow-hidden border transition-all duration-300 ${
+                      isOpen
+                        ? 'border-purple-300 dark:border-purple-500/40 bg-purple-50/30 dark:bg-[#0e0e1c]/98'
+                        : 'border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-white/2'
+                    }`}
                   >
                     <button
                       onClick={() => setOpenFaq(isOpen ? null : i)}
-                      className="w-full flex items-center gap-4 p-6 text-left hover:bg-white/[0.02] transition-colors"
+                      className="w-full flex items-center gap-4 p-6 text-left hover:bg-neutral-100/10 transition-colors"
                     >
                       <div
-                        className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-xs font-black font-mono transition-all duration-300"
-                        style={isOpen
-                          ? { background: 'linear-gradient(135deg,#7c3aed,#a78bfa)', color: '#fff', boxShadow: '0 4px 16px rgba(167,139,250,0.4)' }
-                          : { background: 'rgba(255,255,255,0.05)', color: 'rgb(115,115,115)' }
-                        }
+                        className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-xs font-black font-mono transition-all duration-300 ${
+                          isOpen
+                            ? 'bg-gradient-to-br from-purple-600 to-purple-400 text-white shadow-lg shadow-purple-500/20'
+                            : 'bg-neutral-100 text-neutral-550 dark:bg-white/5 dark:text-neutral-400'
+                        }`}
                       >
                         {String(i + 1).padStart(2, '0')}
                       </div>
-                      <span className={`flex-1 font-display text-base font-semibold transition-colors duration-300 ${isOpen ? 'text-white' : 'text-neutral-300'}`}>
+                      <span className={`flex-1 font-display text-base font-semibold transition-colors duration-300 ${isOpen ? 'text-purple-600 dark:text-white' : 'text-neutral-800 dark:text-neutral-300'}`}>
                         {faq.q}
                       </span>
                       <motion.div
@@ -538,7 +533,7 @@ const About: React.FC = () => {
                         >
                           <div className="px-6 pb-6 pl-20">
                             <div className="h-px mb-4" style={{ background: 'linear-gradient(90deg,rgba(167,139,250,0.3),transparent)' }} />
-                            <p className="text-neutral-400 text-sm leading-relaxed">{faq.a}</p>
+                            <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">{faq.a}</p>
                           </div>
                         </motion.div>
                       )}
@@ -581,14 +576,14 @@ const About: React.FC = () => {
             </motion.div>
 
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] mb-6">
-              <span className="text-white">Ready to Partner</span>
+              <span className="text-neutral-900 dark:text-white">Ready to Partner</span>
               <br />
               <span style={{ background: 'linear-gradient(135deg,#a78bfa 0%,#f472b6 50%,#38bdf8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 With Us?
               </span>
             </h2>
 
-            <p className="text-xl text-neutral-400 max-w-md mx-auto mb-12 leading-relaxed">
+            <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-md mx-auto mb-12 leading-relaxed">
               Let's build something extraordinary together. Every great product starts with a conversation.
             </p>
 

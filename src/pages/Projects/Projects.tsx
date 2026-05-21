@@ -127,8 +127,8 @@ const ProjectCard: React.FC<{
       <motion.div
         className="relative rounded-2xl overflow-hidden"
         animate={isHovered
-          ? { boxShadow: `0 0 0 1.2px ${accent.color}45, 0 12px 36px ${accent.glow}, 0 3px 14px rgba(0,0,0,0.55)` }
-          : { boxShadow: '0 0 0 1px rgba(255,255,255,0.07), 0 4px 20px rgba(0,0,0,0.5)' }
+          ? { boxShadow: `0 0 0 1.2px ${accent.color}45, 0 12px 36px ${accent.glow}, 0 3px 14px rgba(0,0,0,0.1)` }
+          : { boxShadow: '0 0 0 1px rgba(255,255,255,0.07), 0 4px 20px rgba(0,0,0,0.05)' }
         }
         transition={{ duration: 0.3 }}
       >
@@ -215,8 +215,7 @@ const ProjectCard: React.FC<{
 
         {/* Bottom info area */}
         <div
-          className="relative p-5"
-          style={{ background: 'linear-gradient(180deg, #0c0c14 0%, #08080f 100%)' }}
+          className="relative p-5 border-t border-neutral-100 dark:border-neutral-850 bg-white dark:bg-gradient-to-b dark:from-[#0c0c14] dark:to-[#08080f] transition-all duration-300"
         >
           {/* Subtle accent glow behind text area */}
           <motion.div
@@ -239,7 +238,7 @@ const ProjectCard: React.FC<{
             </motion.p>
 
             {/* Title */}
-            <h3 className="font-display text-lg font-bold text-white leading-snug mb-3">
+            <h3 className="font-display text-lg font-bold text-neutral-900 dark:text-white leading-snug mb-3">
               {project.title}
             </h3>
 
@@ -316,10 +315,9 @@ const ProjectModal: React.FC<{
 
       {/* Panel */}
       <motion.div
-        className="relative z-10 w-full max-w-4xl rounded-3xl overflow-hidden"
+        className="relative z-10 w-full max-w-4xl rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-gradient-to-br dark:from-[#0d0d18] dark:to-[#111122] transition-colors duration-300"
         style={{
-          background: 'linear-gradient(135deg, #0d0d18 60%, #111122 100%)',
-          boxShadow: `0 0 0 1px ${accent.color}30, 0 40px 120px ${accent.glow}, 0 0 0 1px rgba(255,255,255,0.04)`,
+          boxShadow: `0 0 0 1px ${accent.color}30, 0 40px 120px ${accent.glow}`,
         }}
         initial={{ scale: 0.88, y: 40, opacity: 0 }}
         animate={{ scale: 1, y: 0, opacity: 1 }}
@@ -341,8 +339,7 @@ const ProjectModal: React.FC<{
         {/* Close button */}
         <motion.button
           onClick={onClose}
-          className="absolute top-5 right-5 z-30 w-9 h-9 rounded-full flex items-center justify-center border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition-all"
-          style={{ background: 'rgba(255,255,255,0.05)' }}
+          className="absolute top-5 right-5 z-30 w-9 h-9 rounded-full flex items-center justify-center border border-neutral-200 dark:border-white/10 text-neutral-500 dark:text-white/50 hover:text-neutral-950 dark:hover:text-white transition-all bg-neutral-100/50 dark:bg-white/5"
           whileHover={{ scale: 1.1, rotate: 90 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.2 }}
@@ -400,7 +397,7 @@ const ProjectModal: React.FC<{
                 {project.tagline}
               </motion.p>
               <motion.h2
-                className="font-display text-3xl md:text-4xl font-bold text-white leading-tight"
+                className="font-display text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white leading-tight"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.16 }}
@@ -411,7 +408,7 @@ const ProjectModal: React.FC<{
 
             {/* Description */}
             <motion.p
-              className="text-neutral-400 text-sm leading-relaxed"
+              className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -520,10 +517,10 @@ const Projects: React.FC = () => {
                 <span className="text-sm text-blue-300">Our Work</span>
               </motion.div>
               <h1 className="hero-title">
-                <span className="text-white">Featured</span><br />
+                <span className="text-neutral-900 dark:text-white">Featured</span><br />
                 <span className="text-shimmer">Projects</span>
               </h1>
-              <p className="hero-subtitle mt-6">
+              <p className="hero-subtitle mt-6 text-neutral-600 dark:text-neutral-350">
                 Explore our portfolio of innovative solutions that have transformed businesses and delighted users.
               </p>
             </motion.div>
@@ -543,10 +540,11 @@ const Projects: React.FC = () => {
                 onClick={() => setActiveCategory(cat)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${activeCategory === cat
-                  ? 'bg-white text-black shadow-lg shadow-white/10'
-                  : 'bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 hover:border-neutral-600'
-                  }`}
+                className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 border ${
+                  activeCategory === cat
+                    ? 'bg-purple-600 text-white dark:bg-white dark:text-black border-transparent shadow-lg shadow-purple-500/20 dark:shadow-white/10'
+                    : 'bg-neutral-100 text-neutral-650 hover:text-neutral-900 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:text-white border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-650'
+                }`}
               >
                 {cat}
               </motion.button>
@@ -589,10 +587,10 @@ const Projects: React.FC = () => {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="font-display text-5xl md:text-6xl font-bold tracking-tight">
-              <span className="text-white">Have a Project</span><br />
+              <span className="text-neutral-900 dark:text-white">Have a Project</span><br />
               <span className="text-blue-400">in Mind?</span>
             </h2>
-            <p className="mt-6 text-xl text-neutral-300 max-w-xl mx-auto">
+            <p className="mt-6 text-xl text-neutral-600 dark:text-neutral-300 max-w-xl mx-auto">
               Let's collaborate to bring your vision to life.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
