@@ -18,7 +18,7 @@ const Chatbot: React.FC = () => {
   ];
 
   const [messages, setMessages] = useState<Message[]>([
-    { sender: 'bot', text: "Hello! I'm the Neexzen AI assistant. How can I help you today?" },
+    { sender: 'bot', text: "Hello! I'm the The Legend It AI assistant. How can I help you today?" },
   ]);
 
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
@@ -38,7 +38,7 @@ const Chatbot: React.FC = () => {
     setInput('');
 
     setTimeout(() => {
-      const botResponse: Message = { sender: 'bot', text: 'Neexzen AI is currently under development. Thanks for your interest!' };
+      const botResponse: Message = { sender: 'bot', text: 'The Legend It AI is currently under development. Thanks for your interest!' };
       setMessages(prev => [...prev, botResponse]);
     }, 1000);
   };
@@ -48,7 +48,7 @@ const Chatbot: React.FC = () => {
     setMessages(prev => [...prev, userMessage]);
     
     setTimeout(() => {
-      const botResponse: Message = { sender: 'bot', text: 'Neexzen AI is currently under development. Thanks for your interest!' };
+      const botResponse: Message = { sender: 'bot', text: 'The Legend It AI is currently under development. Thanks for your interest!' };
       setMessages(prev => [...prev, botResponse]);
     }, 1000);
   };
@@ -80,7 +80,7 @@ const Chatbot: React.FC = () => {
             {/* Header */}
             <div className="flex items-center p-4 border-b border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50">
               <Sparkles className="w-6 h-6 text-blue-500 mr-3" />
-              <h3 className="font-bold text-lg text-gray-900 dark:text-white">Neexzen AI</h3>
+              <h3 className="font-bold text-lg text-gray-900 dark:text-white">The Legend It AI</h3>
             </div>
 
             {/* Messages */}

@@ -1,13 +1,13 @@
-#  NEEXZEN 
+#  The Legend It 
 
-> Professional Software Solution by NEEXZEN  
+> Professional Software Solution by The Legend It  
 > Building Scalable Digital Systems for the Future
 
 ---
 
 ## About
 
-**Neexzen** is a modern, scalable, and high-performance software solution developed by **NEEXZEN**.  
+**The Legend It** is a modern, scalable, and high-performance software solution developed by **The Legend It**.  
 This system is designed to deliver secure, efficient, and user-friendly digital experiences.
 
 It focuses on:
@@ -44,7 +44,7 @@ It focuses on:
 ## Installation
 
 ```bash
-git clone https://github.com/NEEXZEN/project-name.git
+git clone https://github.com/The Legend It/project-name.git
 cd project-name
 npm install
 npm run dev

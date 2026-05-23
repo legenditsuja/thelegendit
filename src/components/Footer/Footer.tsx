@@ -43,11 +43,7 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block">
-              <img
-                src="/NEEXZEN%20LOGO_LARGE.png"
-                alt="Neexzen Logo"
-                className="h-20 w-auto"
-              />
+              <h1 className='text-4xl font-extrabold text-white dark:text-white'>The Legend It</h1>
             </Link>
             <p className="mt-6 text-neutral-400 text-sm leading-relaxed max-w-sm">
               Building breakthrough software solutions for the modern enterprise.
@@ -55,9 +51,9 @@ const Footer: React.FC = () => {
             </p>
 
             <div className="mt-8 space-y-3">
-              <a href="mailto:info@neexzen.com" className="flex items-center gap-3 text-sm text-neutral-400 hover:text-white transition-colors">
+              <a href="mailto:info@thelegendit.com" className="flex items-center gap-3 text-sm text-neutral-400 hover:text-white transition-colors">
                 <Mail size={16} className="text-purple-400" />
-                info@neexzen.com
+                info@thelegendit.com
               </a>
               <a href="tel:+8801304984437" className="flex items-center gap-3 text-sm text-neutral-400 hover:text-white transition-colors">
                 <Phone size={16} className="text-purple-400" />
@@ -147,7 +143,7 @@ const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-neutral-500">
-              © {currentYear} Neexzen. All rights reserved.
+              © {currentYear} The Legend It. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm text-neutral-500">
               <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
